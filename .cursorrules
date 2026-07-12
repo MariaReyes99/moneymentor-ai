@@ -1,0 +1,14 @@
+# .cursorrules
+# Project: MoneyMentor AI — AI Financial Coach
+# Stack: Next.js 14 + TypeScript + Tailwind CSS + Supabase + OpenAI GPT
+
+Always use TypeScript strict mode and never use the any type; use unknown with type guards instead.
+Keep React components under 150 lines; extract logic into custom hooks once a component grows beyond that.
+Always wrap async OpenAI and Supabase calls in try/catch and return {error: string, data: null} on failure.
+Never hardcode the OpenAI API key, Supabase URL/keys, or any database credentials; load all secrets via environment variables and keep .env.local out of version control.
+Every API route must validate its input on the server side before processing, even if the client already validated it — reject invalid input before calling the OpenAI API.
+Validate every structured AI response (e.g. the savings plan JSON) against its expected schema before returning it to the client; on failure, retry once, then fall back to a deterministic calculation.
+Never let AI-generated copy recommend a specific brokerage, stock, or fund by name, and always show the educational-only disclaimer on a chat session's first message.
+Enforce the disclaimer and no-specific-product rules at the API layer, not only in the UI, so a frontend change can't silently drop them.
+Place API route handlers in /app/api, shared logic and prompt templates in /lib, and reusable UI in /components.
+Every new API route must include at least one test covering a valid request and one covering an invalid-input case, matching the acceptance criteria in spec.md.
