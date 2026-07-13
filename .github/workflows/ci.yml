@@ -42,9 +42,9 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
 
-      - name: Deploy to Vercel
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      #- name: Deploy to Vercel
+      #  if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      #  run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
+      #  env:
+      #    VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      #    VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
